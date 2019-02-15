@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+    <script>
+        Pusher.logToConsole = true;
+        var pusher = new Pusher('your-app-id', {
+            cluster : 'ap1',
+            forceTLS: true
+        });
+
+        /* 
+            send your data to your channel and event            
+        */
+        var channel = pusher.subscribe("your-channel");
+        channel.bind("your-event", function(data){
+            alert(JSON.stringify(data));
+        });
+    </script>
+</head>
+<body>
+        <h1>Notif With Go!</h1>
+        <p>
+          Here we go Gopher!
+        </p>
+</body>
+</html>
